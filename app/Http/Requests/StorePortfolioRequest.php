@@ -13,7 +13,7 @@ class StorePortfolioRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +23,13 @@ class StorePortfolioRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
-        ];
+      return [
+          'name' => 'required|max:255|unique:App\Portfolio,name',
+          'description' => 'nullable',
+          'url' => 'nullable|url',
+          'image' => 'required|image|mimes:jpeg,png,jpg|max:2048|dimensions:min_width=500,min_height=280',
+          'stacks' => 'required',
+          'portfolio_tag_id' => 'required',
+      ];
     }
 }

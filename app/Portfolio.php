@@ -3,13 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Portfolio extends Model
 {
-    use SoftDeletes, Notifiable;
-
     /**
      * The attributes that are mass assignable.
      *
@@ -18,18 +14,30 @@ class Portfolio extends Model
     protected $fillable = [
       'name',
       'description',
+      'url',
       'image_filename',
+      'portfolio_tag_id',
+      'created_user_id',
+      'updated_user_id',
       'created_at',
       'updated_at',
-      'deleted_at',
     ];
 
     protected $dates = [
         'updated_at',
         'created_at',
-        'deleted_at',
         'email_verified_at',
     ];
+
+    public function portfolioTag()
+    {
+        return $this->belongsTo('App\PortfolioTag');
+    }
+
+    public function stacks()
+    {
+        return $this->belongsToMany('App\Stack');
+    }
 
     public $imageDirectory = '/portfolio//';
 

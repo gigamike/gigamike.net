@@ -46,7 +46,7 @@ class CertificationsController extends Controller
         $filter = array();
         $filter['name_keyword'] = $request->input('name_keyword');
 
-        $certifications = $this->_certificationRepository->paginate(10, $filter);
+        $certifications = $this->_certificationRepository->orderBy('name', 'ASC')->paginate(10, $filter);
 
         // dd($certifications);
 

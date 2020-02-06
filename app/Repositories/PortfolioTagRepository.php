@@ -2,14 +2,14 @@
 
 namespace App\Repositories;
 
-use App\Role;
-use App\Repositories\Interfaces\RoleRepositoryInterface;
+use App\PortfolioTag;
+use App\Repositories\Interfaces\PortfolioTagRepositoryInterface;
 
-class RoleRepository implements RoleRepositoryInterface
+class PortfolioTagRepository implements PortfolioTagRepositoryInterface
 {
     public function all()
     {
-      return Role::all();
+      return PortfolioTag::all();
     }
 
   	public function paginate($page, $filter = array())
@@ -17,45 +17,45 @@ class RoleRepository implements RoleRepositoryInterface
       $name = isset($filter['name']) ? $filter['name'] : '';
       $nameKeyword = isset($filter['name_keyword']) ? $filter['name_keyword'] : '';
 
-      return Role::when(!empty($name), function($query) use($name){
-        return Role::where('name', $name);
+      return PortfolioTag::when(!empty($name), function($query) use($name){
+        return PortfolioTag::where('name', $name);
       })->when(!empty($nameKeyword), function($query) use($nameKeyword){
-        return Role::where('name', 'like', '%' . $nameKeyword . '%');
+        return PortfolioTag::where('name', 'like', '%' . $nameKeyword . '%');
       })->paginate(10);
   	}
 
     public function create($data)
   	{
-  		return Role::create($data);
+  		return PortfolioTag::create($data);
   	}
 
     public function save()
   	{
-  		return Role::save();
+  		return PortfolioTag::save();
   	}
 
     public function update($data)
   	{
-  		return Role::update($data);
+  		return PortfolioTag::update($data);
   	}
 
     public function delete($id)
   	{
-  		return Role::delete($id);
+  		return PortfolioTag::delete($id);
   	}
 
     public function findOrFail($id)
   	{
-  		return User::findOrFail($id);
+  		return PortfolioTag::findOrFail($id);
   	}
 
     public function whereIn($columnName, $values)
   	{
-  		return Role::whereIn($columnName, $values);
+  		return PortfolioTag::whereIn($columnName, $values);
   	}
 
     public function orderBy($field, $order)
   	{
-  		return Role::orderBy($field, $order);
+  		return PortfolioTag::orderBy($field, $order);
   	}
 }

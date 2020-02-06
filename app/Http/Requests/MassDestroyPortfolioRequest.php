@@ -13,7 +13,7 @@ class MassDestroyPortfolioRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +23,9 @@ class MassDestroyPortfolioRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
-        ];
+      return [
+          'ids'   => 'required|array',
+          'ids.*' => 'exists:users,id',
+      ];
     }
 }

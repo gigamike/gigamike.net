@@ -24,7 +24,10 @@ class UpdatePortfolioRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|max:255|unique:App\Portfolio,name,' . $this->route('portfolio'),
+            'description' => 'nullable',
+            'url' => 'nullable|url',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048|dimensions:min_width=500,min_height=280',
         ];
     }
 }

@@ -53,4 +53,9 @@ class CertificationRepository implements CertificationRepositoryInterface
   	{
   		return Certification::whereIn($columnName, $values);
   	}
+
+    public function orderBy($field, $order)
+  	{
+  		return Certification::orderBy($field, $order);
+  	}
 }

@@ -5,12 +5,12 @@
 	<div class="container-fluid">
 
 		<!-- Page Heading -->
-		<h1 class="h3 mb-2 text-gray-800">User Add</h1>
+		<h1 class="h3 mb-2 text-gray-800">Portfolio Add</h1>
 		<p class="mb-4"></p>
 
 		<div class="card">
 		  <div class="card-header">
-		    User Add
+		    Portfolio Add
 		  </div>
 		  <div class="card-body">
 				@if ($success = session('success'))
@@ -29,32 +29,13 @@
 			    </div>
 				@endif
 
-				<form action="{{ route('admin.users.store') }}" method="POST">
+				<form action="{{ route('admin.portfolios.store') }}" method="POST" enctype="multipart/form-data">
     			@csrf
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="email">Email</label>
-              <input type="email" class="form-control" id="email" name="email" value="{{ old('email', isset($user) ? $user->email : '') }}" required>
-							@if($errors->has('email'))
-                <em class="invalid-feedback d-block">
-                  {{ $errors->first('email') }}
-                </em>
-              @endif
-            </div>
-            <div class="form-group col-md-6">
-              <label for="password">Password</label>
-              <input type="password" class="form-control" id="password" name="password" required>
-							@if($errors->has('password'))
-                  <em class="invalid-feedback d-block">
-                      {{ $errors->first('password') }}
-                  </em>
-              @endif
-            </div>
-          </div>
-          <div class="form-row">
+					<input type="hidden" name="created_user_id" value="{{ $userId }}">
+					<div class="form-row">
             <div class="form-group col-md-6">
               <label for="name">Name</label>
-              <input type="text" class="form-control" id="name" name="name" value="{{ old('name', isset($user) ? $user->name : '') }}" required>
+              <input type="text" class="form-control" id="name" name="name" value="{{ old('name', isset($portfolio) ? $portfolio->name : '') }}" required>
 							@if($errors->has('name'))
                 <em class="invalid-feedback d-block">
                   {{ $errors->first('name') }}
@@ -62,22 +43,71 @@
               @endif
             </div>
             <div class="form-group col-md-6">
-              <label for="role_id">Role</label>
-              <select id="role_id" class="form-control" id="role_id" name="role_id" required>
-								<option value="">Select Role</option>
-								@foreach ($roles as $id => $role)
-                <option value="{{ $id }}" {{ $id == old('role_id', isset($user) ? $user->role_id : '') ? 'selected' : '' }}>{{ $role }}</option>
-								@endforeach
-              </select>
-							@if($errors->has('roles'))
+              <label for="portfolio_tag_id">URL</label>
+              <input type="text" class="form-control" id="url" name="url" value="{{ old('url', isset($portfolio) ? $portfolio->url : '') }}">
+							@if($errors->has('url'))
                     <em class="invalid-feedback d-block">
-                        {{ $errors->first('roles') }}
+                        {{ $errors->first('url') }}
                     </em>
                 @endif
             </div>
           </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="email">Description</label>
+              <textarea rows="10" class="form-control" id="description" name="description">{{ old('description', isset($portfolio) ? $portfolio->description : '') }}</textarea>
+							@if($errors->has('email'))
+                <em class="invalid-feedback d-block">
+                  {{ $errors->first('email') }}
+                </em>
+              @endif
+            </div>
+						<div class="form-group col-md-6">
+              <label for="stacks">Stacks</label>
+					    <select size="10" multiple class="form-control" id="stacks" name="stacks[]" required>
+								@foreach ($stacks as $id => $stack)
+					      <option value="{{ $id }}" {{ in_array($id, old('stacks', isset($portfolio) ? $portfolio->stacks : [])) ? 'selected' : '' }}>{{ $stack }}</option>
+								@endforeach
+					    </select>
+							@if($errors->has('stacks'))
+                <em class="invalid-feedback d-block">
+                  {{ $errors->first('stacks') }}
+                </em>
+              @endif
+            </div>
+          </div>
+
+					<div class="form-row">
+            <div class="form-group col-md-6">
+							<label for="image">Choose Photo</label>
+							<input type="file" class="form-control-file" id="image" name="image">
+							<small class="form-text text-muted">
+								Dimension: 500x280 Type: jpeg,png,jpg
+							</small>
+							@if($errors->has('photo'))
+                <em class="invalid-feedback d-block">
+                  {{ $errors->first('photo') }}
+                </em>
+              @endif
+            </div>
+						<div class="form-group col-md-6">
+              <label for="portfolio_tag_id">Tag</label>
+              <select class="form-control" id="portfolio_tag_id" name="portfolio_tag_id" required>
+								<option value="">Select Tag</option>
+								@foreach ($portfolioTags as $id => $portfolioTag)
+                <option value="{{ $id }}" {{ $id == old('portfolio_tag_id', isset($portfolio) ? $portfolio->portfolio_tag_id : '') ? 'selected' : '' }}>{{ $portfolioTag }}</option>
+								@endforeach
+              </select>
+							@if($errors->has('portfolio_tag_id'))
+                    <em class="invalid-feedback d-block">
+                        {{ $errors->first('cportfolio_tag_id') }}
+                    </em>
+                @endif
+            </div>
+          </div>
+
           <button type="submit" class="btn btn-primary">Save</button>
-					<a href="{{ route('admin.users.index') }}" class="btn btn-secondary">Cancel</a>
+					<a href="{{ route('admin.portfolios.index') }}" class="btn btn-secondary">Cancel</a>
 				</form>
 		  </div>
 		</div>
@@ -85,4 +115,13 @@
 
 	</div>
 	<!-- /.container-fluid -->
+@endsection
+
+
+@section('js')
+<script>
+  $(function(){
+
+	})
+</script>
 @endsection

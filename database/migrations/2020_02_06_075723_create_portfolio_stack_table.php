@@ -13,12 +13,11 @@ class CreatePortfolioStackTable extends Migration
      */
     public function up()
     {
-        Schema::create('portfolio_stacks', function (Blueprint $table) {
+        Schema::create('portfolio_stack', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name')->nullable()->unique();
-            $table->string('image_filename')->nullable();
+            $table->bigInteger('portfolio_id')->index();
+            $table->bigInteger('stack_id')->index();
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -29,6 +28,6 @@ class CreatePortfolioStackTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('portfolio_stacks');
+        Schema::dropIfExists('portfolio_stack');
     }
 }

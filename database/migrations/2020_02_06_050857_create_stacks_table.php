@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCertificationTagTable extends Migration
+class CreateStacksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateCertificationTagTable extends Migration
      */
     public function up()
     {
-        Schema::create('certification_tags', function (Blueprint $table) {
+        Schema::create('stacks', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name')->nullable()->unique();
+            $table->string('image_filename')->nullable();
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ class CreateCertificationTagTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('certification_tags');
+        Schema::dropIfExists('stacks');
     }
 }

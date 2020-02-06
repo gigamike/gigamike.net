@@ -24,7 +24,6 @@ class CreateCertificationsTable extends Migration
             $table->bigInteger('updated_user_id')->nullable()->index();
             $table->timestamps();
             $table->index('created_at');
-            $table->softDeletes();
         });
     }
 

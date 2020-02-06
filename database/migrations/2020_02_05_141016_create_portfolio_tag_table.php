@@ -17,7 +17,6 @@ class CreatePortfolioTagTable extends Migration
             $table->bigIncrements('id');
             $table->string('name')->nullable()->unique();
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 

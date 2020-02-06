@@ -19,4 +19,6 @@ interface CertificationRepositoryInterface
     public function findOrFail($id);
 
     public function whereIn($columnName, $values);
+
+    public function orderBy($field, $order);
 }

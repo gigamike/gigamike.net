@@ -53,4 +53,9 @@ class PortfolioRepository implements PortfolioRepositoryInterface
   	{
   		return Portfolio::whereIn($columnName, $values);
   	}
+
+    public function orderBy($field, $order)
+  	{
+  		return Portfolio::orderBy($field, $order);
+  	}
 }

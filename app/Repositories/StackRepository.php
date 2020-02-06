@@ -2,14 +2,14 @@
 
 namespace App\Repositories;
 
-use App\Role;
-use App\Repositories\Interfaces\RoleRepositoryInterface;
+use App\Stack;
+use App\Repositories\Interfaces\StackRepositoryInterface;
 
-class RoleRepository implements RoleRepositoryInterface
+class StackRepository implements StackRepositoryInterface
 {
     public function all()
     {
-      return Role::all();
+      return Stack::all();
     }
 
   	public function paginate($page, $filter = array())
@@ -17,45 +17,45 @@ class RoleRepository implements RoleRepositoryInterface
       $name = isset($filter['name']) ? $filter['name'] : '';
       $nameKeyword = isset($filter['name_keyword']) ? $filter['name_keyword'] : '';
 
-      return Role::when(!empty($name), function($query) use($name){
-        return Role::where('name', $name);
+      return Stack::when(!empty($name), function($query) use($name){
+        return Stack::where('name', $name);
       })->when(!empty($nameKeyword), function($query) use($nameKeyword){
-        return Role::where('name', 'like', '%' . $nameKeyword . '%');
+        return Stack::where('name', 'like', '%' . $nameKeyword . '%');
       })->paginate(10);
   	}
 
     public function create($data)
   	{
-  		return Role::create($data);
+  		return Stack::create($data);
   	}
 
     public function save()
   	{
-  		return Role::save();
+  		return Stack::save();
   	}
 
     public function update($data)
   	{
-  		return Role::update($data);
+  		return Stack::update($data);
   	}
 
     public function delete($id)
   	{
-  		return Role::delete($id);
+  		return Stack::delete($id);
   	}
 
     public function findOrFail($id)
   	{
-  		return User::findOrFail($id);
+  		return Stack::findOrFail($id);
   	}
 
     public function whereIn($columnName, $values)
   	{
-  		return Role::whereIn($columnName, $values);
+  		return Stack::whereIn($columnName, $values);
   	}
 
     public function orderBy($field, $order)
   	{
-  		return Role::orderBy($field, $order);
+  		return Stack::orderBy($field, $order);
   	}
 }

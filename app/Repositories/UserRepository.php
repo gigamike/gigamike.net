@@ -53,4 +53,9 @@ class UserRepository implements UserRepositoryInterface
   	{
   		return User::whereIn($columnName, $values);
   	}
+
+    public function orderBy($field, $order)
+  	{
+  		return User::orderBy($field, $order);
+  	}
 }

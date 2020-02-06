@@ -53,4 +53,9 @@ class CertificationTagRepository implements CertificationTagRepositoryInterface
   	{
   		return CertificationTag::whereIn($columnName, $values);
   	}
+
+    public function orderBy($field, $order)
+  	{
+  		return CertificationTag::orderBy($field, $order);
+  	}
 }

@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Interfaces;
 
-interface PortfolioRepositoryInterface
+interface PortfolioStackRepositoryInterface
 {
     public function all();
 
