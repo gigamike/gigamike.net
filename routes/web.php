@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'HomeController@welcome')->name('welcome');
+Route::get('/', 'WelcomeController@welcome')->name('welcome');
 
 Auth::routes();
 // Auth::routes(['register' => false]);

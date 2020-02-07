@@ -46,7 +46,7 @@
            <div class="card-footer border-0 pt-0 pb-5 px-0 mx-5">
              <div class="media align-items-center">
                @foreach($portfolio->stacks as $key => $stack)
-               <div class="u-sm-avatar u-sm-avatar--bordered rounded-circle" data-toggle="tooltip" data-placement="top" title="PHP">
+               <div class="u-sm-avatar u-sm-avatar--bordered rounded-circle" data-toggle="tooltip" data-placement="top" title="{{ $stack->name ?? '' }}">
                  <img class="img-fluid rounded-circle" src="/uploads/icons/{{ $stack->image_filename }}" alt="{{ $stack->name ?? '' }}">
                </div>
                 @endforeach

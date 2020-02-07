@@ -4,21 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Repositories\Interfaces\CertificationRepositoryInterface;
-
 class HomeController extends Controller
 {
-    private $_certificationRepository;
-
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct(CertificationRepositoryInterface $certificationRepository)
+    public function __construct()
     {
         $this->middleware('auth');
-        $this->_certificationRepository = $certificationRepository;
     }
 
     /**
@@ -29,12 +24,5 @@ class HomeController extends Controller
     public function index()
     {
         // return view('home');
-    }
-
-    public function welcome()
-    {
-        $certifications = $this->_certificationRepository->all();
-
-        return view('welcome', compact('certifications'));
     }
 }
