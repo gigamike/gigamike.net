@@ -1,5 +1,7 @@
 @extends('layouts/app')
 
+@section('title', 'Terms and Conditions')
+
 @section('content')
 <!-- Terms Content Section -->
 <div class="container space-2 space-top-md-4 space-bottom-md-3">

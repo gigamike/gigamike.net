@@ -1,5 +1,7 @@
 @extends('layouts/app')
 
+@section('title', 'Privacy & Policy')
+
 @section('content')
  <!-- Privacy Section -->
  <div class="container space-top-2 space-top-md-4 space-bottom-1 overflow-hidden">

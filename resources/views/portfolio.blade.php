@@ -1,5 +1,7 @@
 @extends('layouts/app')
 
+@section('title', 'My Portfolio')
+
 @section('content')
 <!-- Hero Section -->
    <div class="container space-top-2">

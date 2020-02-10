@@ -1,5 +1,7 @@
 @extends('layouts/app')
 
+@section('title', 'About')
+
 @section('content')
 <!-- Hero Section -->
 <div class="container space-2 space-top-md-5 space-top-lg-4">

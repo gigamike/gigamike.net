@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Email')
+
 @section('content')
 <!-- Login Form -->
     <div class="container space-2">

@@ -1,5 +1,7 @@
 @extends('layouts/app')
 
+@section('title', 'My Certifications')
+
 @section('content')
  <!-- Hero Section -->
  <div id="SVGwave1BottomSMShape" class="svg-preloader position-relative bg-light overflow-hidden">
