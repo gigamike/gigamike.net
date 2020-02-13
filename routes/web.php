@@ -12,7 +12,6 @@
 */
 
 Route::get('/', 'WelcomeController@welcome')->name('welcome');
-
 Route::get('lang/{locale}', 'WelcomeController@lang')->name('lang');
 
 Auth::routes();
