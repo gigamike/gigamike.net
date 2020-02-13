@@ -76,6 +76,23 @@
                 @endif
             </div>
           </div>
+					<div class="form-row">
+            <div class="form-group col-md-6">
+							<label for="is_active">Is Active</label>
+              <select class="form-control" id="is_active" name="is_active" required>
+                <option value="Y" {{ 'Y' == old('is_active', isset($is_active) ? $user->is_active : '') ? 'selected' : '' }}>Yes</option>
+								<option value="N" {{ 'N' == old('is_active', isset($is_active) ? $user->is_active : '') ? 'selected' : '' }}>No</option>
+              </select>
+							@if($errors->has('is_active'))
+                    <em class="invalid-feedback d-block">
+                        {{ $errors->first('is_active') }}
+                    </em>
+                @endif
+            </div>
+            <div class="form-group col-md-6">
+
+            </div>
+          </div>
           <button type="submit" class="btn btn-primary">Save</button>
 					<a href="{{ route('admin.users.index') }}" class="btn btn-secondary">Cancel</a>
 				</form>
