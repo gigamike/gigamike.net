@@ -9,8 +9,8 @@
         <div class="col-lg-5 mb-9 mb-lg-0">
           <!-- Info -->
           <div class="mb-4">
-            <h1 class="h1">Welcome to<br><strong class="text-primary">Gigamike Solutions</strong></h1>
-            <p>We aim high at being focused on building relationships with our clients and community. Using our creative gifts drives this foundation.</p>
+            <h1 class="h1">{{ __('welcome.welcome_to') }}<br><strong class="text-primary">Gigamike Solutions</strong></h1>
+            <p>{{ __('welcome.welcome_message') }}</p>
           </div>
           <!-- End Info -->
         </div>
@@ -51,7 +51,7 @@
                    data-parent="#icon9">
             </figure>
             <div class="media-body">
-              <h3 class="h5">Web</h3>
+              <h3 class="h5">{{ __('welcome.web') }}</h3>
               <p class="mb-1">LAMP Stack, Laravel, Zend Framework, Symfony, Magento, Wordpress, Drupal, NodeJS and more. #CMS #Blockchain #Security</p>
               <a class="font-size-1" href="{{ route('contact') }}">Explore now <span class="fas fa-angle-right align-middle ml-2"></span></a>
             </div>
@@ -67,7 +67,7 @@
                    data-parent="#icon3">
             </figure>
             <div class="media-body">
-              <h3 class="h5">Mobile</h3>
+              <h3 class="h5">{{ __('welcome.mobile') }}</h3>
               <p class="mb-1">Mobile apps compatible to iOS and Android. #ReactNative</p>
               <a class="font-size-1" href="{{ route('contact') }}">Explore now <span class="fas fa-angle-right align-middle ml-2"></span></a>
             </div>
@@ -85,7 +85,7 @@
                    data-parent="#icon5">
             </figure>
             <div class="media-body">
-              <h3 class="h5">Design</h3>
+              <h3 class="h5">{{ __('welcome.design') }}</h3>
               <p class="mb-1">Layout, Templates, Logos, Photo Editing, Presentations. #Bootstrap #Jquery #VueJS #AffinityPhoto #AffinityDesigner #AffinityPublisher #Photoshop</p>
               <a class="font-size-1" href="{{ route('contact') }}">Explore now <span class="fas fa-angle-right align-middle ml-2"></span></a>
             </div>
@@ -101,7 +101,7 @@
                    data-parent="#icon2">
             </figure>
             <div class="media-body">
-              <h3 class="h5">Hosting</h3>
+              <h3 class="h5">{{ __('welcome.hosting') }}</h3>
               <p class="mb-1">Web servers, Moving from shared host to VPS to dedicated server. #AWS #GoogleCloud #DO #Panel #Backup #Installation #Linux #Windows</p>
               <a class="font-size-1" href="{{ route('contact') }}">Explore now <span class="fas fa-angle-right align-middle ml-2"></span></a>
             </div>
@@ -128,9 +128,7 @@
 
       <!-- Blockquote -->
       <div class="w-md-80 w-lg-50 text-center mx-md-auto mb-6">
-        <blockquote class="lead text-secondary font-weight-normal">Hello! I am web developer with extensive real-world experience. I consider myself a software craftsman rather than a simple programmer because I obsess over every detail of the applications that I develop. My commitment includes providing well documented and extensible projects that my clients can extend and maintain for years after I am gone.
-
-I am open to work on projects from anywhere. Thank you for your interest. I look forward working with you. </blockquote>
+        <blockquote class="lead text-secondary font-weight-normal">{{ __('welcome.testimonial') }}</blockquote>
       </div>
       <!-- End Blockquote -->
 

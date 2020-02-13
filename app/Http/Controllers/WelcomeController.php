@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Repositories\Interfaces\CertificationRepositoryInterface;
+use App;
 
 class WelcomeController extends Controller
 {
@@ -25,5 +26,12 @@ class WelcomeController extends Controller
         $certifications = $this->_certificationRepository->all();
 
         return view('welcome', compact('certifications'));
+    }
+
+    public function lang($locale)
+    {
+        App::setLocale($locale);
+        session()->put('locale', $locale);
+        return redirect()->back();
     }
 }

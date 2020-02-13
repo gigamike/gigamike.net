@@ -80,9 +80,9 @@
 
           <!-- Input -->
           <form class="js-focus-state input-group">
-            <input type="search" class="form-control" placeholder="Search" aria-label="Search">
+            <input type="search" class="form-control" placeholder="{{ __('menu.search') }}" aria-label="{{ __('menu.search') }}">
             <div class="input-group-append">
-              <button type="button" class="btn btn-primary">Search</button>
+              <button type="button" class="btn btn-primary">{{ __('menu.search') }}</button>
             </div>
           </form>
           <!-- End Input -->
@@ -90,7 +90,7 @@
           <!-- Content -->
           <div class="row d-none d-md-flex mt-7">
             <div class="col-sm-6">
-              <strong class="d-block mb-2">Quick Links</strong>
+              <strong class="d-block mb-2">{{ __('menu.quick_links') }}</strong>
 
               <div class="row">
                 <!-- List Group -->
@@ -98,19 +98,19 @@
                   <div class="list-group list-group-transparent list-group-flush list-group-borderless">
                     <a class="list-group-item list-group-item-action" href="{{ route('portfolio') }}">
                       <span class="fas fa-angle-right list-group-icon"></span>
-                      Portfolios
+                      {{ __('menu.portfolio') }}</a>
                     </a>
                     <a class="list-group-item list-group-item-action" href="{{ route('certification') }}">
                       <span class="fas fa-angle-right list-group-icon"></span>
-                      Certification
+                      {{ __('menu.certification') }}
                     </a>
                     <a class="list-group-item list-group-item-action" href="{{ route('about') }}">
                       <span class="fas fa-angle-right list-group-icon"></span>
-                      About
+                      {{ __('menu.about') }}
                     </a>
                     <a class="list-group-item list-group-item-action" href="https://www.alexachamp.com/" target="_blank">
                       <span class="fas fa-angle-right list-group-icon"></span>
-                      Blog
+                      {{ __('menu.blog') }}
                     </a>
                   </div>
                 </div>
@@ -121,15 +121,15 @@
                   <div class="list-group list-group-transparent list-group-flush list-group-borderless">
                     <a class="list-group-item list-group-item-action" href="{{ route('contact') }}">
                       <span class="fas fa-angle-right list-group-icon"></span>
-                      Contact Us
+                      {{ __('menu.contact_us') }}
                     </a>
                     <a class="list-group-item list-group-item-action" href="{{ route('services') }}">
                       <span class="fas fa-angle-right list-group-icon"></span>
-                      Services
+                      {{ __('menu.services') }}
                     </a>
                     <a class="list-group-item list-group-item-action" href="/pdf/MichaelGerardGalonCV.pdf">
                       <span class="fas fa-angle-right list-group-icon"></span>
-                      My Resume
+                      {{ __('menu.my_resume') }}
                     </a>
                   </div>
                 </div>
@@ -148,10 +148,10 @@
 
                   <div>
                     <div class="mb-4">
-                      <strong class="d-block mb-2">Need Dev?</strong>
-                      <p>Have your own website or mobile app.</p>
+                      <strong class="d-block mb-2">{{ __('menu.need_dev') }}</strong>
+                      <p>{{ __('menu.have_your_own_website_or_mobile_app') }}</p>
                     </div>
-                    <a class="btn btn-xs btn-soft-success transition-3d-hover" href="{{ route('contact') }}">Contact Us <span class="fas fa-angle-right ml-2"></span></a>
+                    <a class="btn btn-xs btn-soft-success transition-3d-hover" href="{{ route('contact') }}">{{ __('menu.contact_us') }} <span class="fas fa-angle-right ml-2"></span></a>
                   </div>
                 </div>
               </div>
@@ -168,6 +168,41 @@
       <!-- Topbar -->
       <div class="container u-header__hide-content pt-2">
         <div class="d-flex align-items-center">
+          <!-- Language -->
+          <div class="position-relative">
+            <a id="languageDropdownInvoker" class="dropdown-nav-link dropdown-toggle d-flex align-items-center" href="javascript:;" role="button"
+               aria-controls="languageDropdown"
+               aria-haspopup="true"
+               aria-expanded="false"
+               data-unfold-event="hover"
+               data-unfold-target="#languageDropdown"
+               data-unfold-type="css-animation"
+               data-unfold-duration="300"
+               data-unfold-delay="300"
+               data-unfold-hide-on-scroll="true"
+               data-unfold-animation-in="slideInUp"
+               data-unfold-animation-out="fadeOut">
+               @php $locale = session()->get('locale'); @endphp
+               @switch($locale)
+                @case('tl')
+                  <img class="dropdown-item-icon" src="/assets/vendor/flag-icon-css/flags/4x3/ph.svg" alt="SVG">
+                  <span class="d-inline-block d-sm-none">Tagalog</span>
+                  <span class="d-none d-sm-inline-block">Philippines</span>
+                  @break
+                @default
+                <img class="dropdown-item-icon" src="/assets/vendor/flag-icon-css/flags/4x3/us.svg" alt="SVG">
+                <span class="d-inline-block d-sm-none">US</span>
+                <span class="d-none d-sm-inline-block">United States</span>
+              @endswitch 
+            </a>
+
+            <div id="languageDropdown" class="dropdown-menu dropdown-unfold" aria-labelledby="languageDropdownInvoker">
+              <a class="dropdown-item @if($locale == 'en') active @endif" href="{{ route('lang', 'en') }}">English</a>
+              <a class="dropdown-item @if($locale == 'tl') active @endif" href="{{ route('lang', 'tl') }}">Tagalog</a>
+            </div>
+          </div>
+          <!-- End Language -->
+
           <div class="ml-auto">
             <!-- Jump To -->
             <div class="d-inline-block d-sm-none position-relative mr-2">
@@ -188,7 +223,7 @@
 
               <div id="jumpToDropdown" class="dropdown-menu dropdown-unfold" aria-labelledby="jumpToDropdownInvoker">
                 <a class="dropdown-item" href="#">Help</a>
-                <a class="dropdown-item" href="{{ route('contact') }}">Contacts</a>
+                <a class="dropdown-item" href="{{ route('contact') }}">{{ __('menu.contact_us') }}</a>
               </div>
             </div>
             <!-- End Jump To -->
@@ -197,10 +232,10 @@
             <div class="d-none d-sm-inline-block ml-sm-auto">
               <ul class="list-inline mb-0">
                 <li class="list-inline-item mr-0">
-                  <a class="u-header__navbar-link" href="#">Help</a>
+                  <a class="u-header__navbar-link" href="#">{{ __('menu.help') }}</a>
                 </li>
                 <li class="list-inline-item mr-0">
-                  <a class="u-header__navbar-link" href="{{ route('contact') }}">Contacts</a>
+                  <a class="u-header__navbar-link" href="{{ route('contact') }}">{{ __('menu.contact_us') }}</a>
                 </li>
               </ul>
             </div>
@@ -272,22 +307,22 @@
             <ul class="navbar-nav u-header__navbar-nav">
               <!-- Home -->
               <li class="nav-item u-header__nav-item">
-                <a class="nav-link u-header__nav-link" href="{{ url('/') }}">Home</a>
+                <a class="nav-link u-header__nav-link" href="{{ url('/') }}">{{ __('menu.home') }}</a>
               </li>
               <!-- End Home -->
 
               <!-- Services -->
               <li class="nav-item u-header__nav-item">
-                <a class="nav-link u-header__nav-link" href="{{ route('services') }}">Services</a>
+                <a class="nav-link u-header__nav-link" href="{{ route('services') }}">{{ __('menu.services') }}</a>
               </li>
               <!-- End Services -->
 
               <li class="nav-item u-header__nav-item">
-                <a class="nav-link u-header__nav-link" href="{{ route('portfolio') }}">Portfolio</a>
+                <a class="nav-link u-header__nav-link" href="{{ route('portfolio') }}">{{ __('menu.portfolio') }}</a>
               </li>
 
               <li class="nav-item u-header__nav-item">
-                <a class="nav-link u-header__nav-link" href="{{ route('certification') }}">Certification</a>
+                <a class="nav-link u-header__nav-link" href="{{ route('certification') }}">{{ __('menu.certification') }}</a>
               </li>
 
               <!--
@@ -316,11 +351,11 @@
 
               @guest
                   <li class="nav-item u-header__nav-item">
-                      <a class="nav-link u-header__nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                      <a class="nav-link u-header__nav-link" href="{{ route('login') }}">{{ __('menu.login') }}</a>
                   </li>
                   @if (Route::has('register'))
                       <li class="nav-item u-header__nav-item">
-                          <a class="nav-link u-header__nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                          <a class="nav-link u-header__nav-link" href="{{ route('register') }}">{{ __('menu.register') }}</a>
                       </li>
                   @endif
               @else
@@ -332,7 +367,7 @@
                           <a class="dropdown-item" href="{{ route('logout') }}"
                              onclick="event.preventDefault();
                                            document.getElementById('logout-form').submit();">
-                              {{ __('Logout') }}
+                              {{ __('menu.logout') }}
                           </a>
 
                           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -345,7 +380,7 @@
               <!-- Button -->
               <li class="nav-item u-header__nav-last-item">
                 <a class="btn btn-sm btn-primary transition-3d-hover" href="{{ route('contact') }}">
-                  Contact Us
+                {{ __('menu.contact_us') }}
                 </a>
               </li>
               <!-- End Button -->
@@ -379,33 +414,33 @@
       <div class="row">
         <div class="col-sm-6 col-lg-4 mb-7 mb-sm-0">
           <div class="mb-4">
-            <h2>Ready to make<br><strong class="text-primary">something amazing?</strong></h2>
+            <h2>{{ __('footer.ready_to_make') }}<br><strong class="text-primary">{{ __('footer.something_amazing') }}</strong></h2>
           </div>
-          <a class="btn btn-primary btn-sm transition-3d-hover" href="<?php echo url("/contact"); ?>">Start a New Project</a>
+          <a class="btn btn-primary btn-sm transition-3d-hover" href="<?php echo url("/contact"); ?>">{{ __('footer.start_a_new_project') }}</a>
         </div>
 
         <div class="col-sm-3 col-lg-2 mb-4 mb-sm-0 ml-lg-auto">
-          <h4 class="h6 font-weight-semi-bold">About</h4>
+          <h4 class="h6 font-weight-semi-bold">{{ __('menu.about') }}</h4>
 
           <!-- List Group -->
           <ul class="list-group list-group-flush list-group-borderless mb-0">
-            <li><a class="list-group-item list-group-item-action" href="<?php echo url("/about"); ?>">About</a></li>
-            <li><a class="list-group-item list-group-item-action" href="<?php echo url("/services"); ?>">Services</a></li>
-            <li><a class="list-group-item list-group-item-action" href="#">Careers <span class="badge badge-success badge-pill ml-1">We're hiring</span></a></li>
-            <li><a class="list-group-item list-group-item-action" href="#">Hire us</a></li>
+            <li><a class="list-group-item list-group-item-action" href="<?php echo url("/about"); ?>">{{ __('menu.about') }}</a></li>
+            <li><a class="list-group-item list-group-item-action" href="<?php echo url("/services"); ?>">{{ __('menu.services') }}</a></li>
+            <li><a class="list-group-item list-group-item-action" href="#">{{ __('menu.careers') }} <span class="badge badge-success badge-pill ml-1">{{ __('menu.were_hiring') }}</span></a></li>
+            <li><a class="list-group-item list-group-item-action" href="#">{{ __('menu.hire_us') }}</a></li>
           </ul>
           <!-- End List Group -->
         </div>
 
         <div class="col-sm-3 col-lg-2">
-          <h4 class="h6 font-weight-semi-bold">Resources</h4>
+          <h4 class="h6 font-weight-semi-bold">{{ __('menu.resources') }}</h4>
 
           <!-- List Group -->
           <ul class="list-group list-group-flush list-group-borderless mb-0">
             <li><a class="list-group-item list-group-item-action" href="#">Help</a></li>
-            <li><a class="list-group-item list-group-item-action" href="<?php echo url("/terms-and-conditions"); ?>">Terms</a></li>
-            <li><a class="list-group-item list-group-item-action" href="<?php echo url("/privacy-and-policy"); ?>">Privacy</a></li>
-            <li><a class="list-group-item list-group-item-action" href="https://www.alexachamp.com/" target="_blank">Blog</a></li>
+            <li><a class="list-group-item list-group-item-action" href="<?php echo url("/terms-and-conditions"); ?>">{{ __('menu.terms') }}</a></li>
+            <li><a class="list-group-item list-group-item-action" href="<?php echo url("/privacy-and-policy"); ?>">{{ __('menu.privacy') }}</a></li>
+            <li><a class="list-group-item list-group-item-action" href="https://www.alexachamp.com/" target="_blank">{{ __('menu.blog') }}</a></li>
           </ul>
           <!-- End List Group -->
         </div>
@@ -721,13 +756,13 @@
         <footer id="SVGwaveWithDots" class="svg-preloader u-sidebar__footer u-sidebar__footer--account">
           <ul class="list-inline mb-0">
             <li class="list-inline-item pr-3">
-              <a class="u-sidebar__footer--account__text" href="<?php echo url("/privacy-and-policy"); ?>">Privacy</a>
+              <a class="u-sidebar__footer--account__text" href="<?php echo url("/privacy-and-policy"); ?>">{{ __('menu.privacy') }}</a>
             </li>
             <li class="list-inline-item pr-3">
-              <a class="u-sidebar__footer--account__text" href="<?php echo url("/terms-and-conditions"); ?>">Terms</a>
+              <a class="u-sidebar__footer--account__text" href="<?php echo url("/terms-and-conditions"); ?>">{{ __('menu.terms') }}</a>
             </li>
             <li class="list-inline-item pr-3">
-              <a class="u-sidebar__footer--account__text" href="https://alexachamp.com/" target="_blank">Blog</a>
+              <a class="u-sidebar__footer--account__text" href="https://alexachamp.com/" target="_blank">{{ __('menu.blog') }}</a>
             </li>
             <li class="list-inline-item">
               <a class="u-sidebar__footer--account__text" href="#">
