@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 use App\Repositories\Interfaces\UserRepositoryInterface;
 use App\Repositories\Interfaces\RoleRepositoryInterface;
@@ -72,7 +73,7 @@ class UsersController extends Controller
      */
     public function store(StoreUserRequest $request)
     {
-        $user = $this->_userRepository->create($request->all());
+        $user = $this->_userRepository->create(array_merge($request->all(), ['api_token' => Str::random(80),]));
 
         return redirect()->route('admin.users.index')->with('success', 'User successfully added.');
     }
@@ -116,7 +117,11 @@ class UsersController extends Controller
     {
         $user = $this->_userRepository->findOrFail($id);
         if($user){
-          $user->update($request->all());
+          if(empty($user->api_token)){
+            $user->update(array_merge($request->all(), ['api_token' => Str::random(80),]));
+          }else{
+            $user->update($request->all());
+          }
         }
 
         return redirect()->route('admin.users.index')->with('success', 'User successfully updated.');

@@ -16,6 +16,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'admin@gigamike.net',
             'password' => Hash::make('g!g@m!ke187'),
             'role_id' => 1,
+            'api_token' => Str::random(80),
         ]);
 
         DB::table('users')->insert([
@@ -23,6 +24,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'member@gigamike.net',
             'password' => Hash::make('g!g@m!ke187'),
             'role_id' => 2,
+            'api_token' => Str::random(80),
         ]);
     }
 }

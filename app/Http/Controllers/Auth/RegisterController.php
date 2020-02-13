@@ -70,6 +70,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'role_id' => 2,
             'is_active' => 'Y',
+            'api_token' => Str::random(80),
         ]);
     }
 }
