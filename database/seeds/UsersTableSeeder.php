@@ -26,5 +26,13 @@ class UsersTableSeeder extends Seeder
             'role_id' => 2,
             'api_token' => Str::random(80),
         ]);
+
+        DB::table('users')->insert([
+            'name' => 'Staff',
+            'email' => 'staff@gigamike.net',
+            'password' => Hash::make('g!g@m!ke187'),
+            'role_id' => 3,
+            'api_token' => Str::random(80),
+        ]);
     }
 }

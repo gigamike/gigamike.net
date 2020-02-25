@@ -44,9 +44,11 @@
 				<h6 class="m-0 font-weight-bold text-primary">Users Overview</h6>
 			</div>
 			<div class="card-body">
+				@can('create', App\User::class)
 				<div class="text-right">
 					<a href="{{ route('admin.users.create') }}" class="btn btn-secondary">Add User</a>
 				</div>
+				@endcan
 
 				<br>
 

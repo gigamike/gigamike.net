@@ -53,9 +53,7 @@
               <img class="rounded" src="/uploads/certification/{{ $certification->image_filename }}" alt="{{ $certification->name ?? '' }}">
               <div class="py-3">
                 <h4 class="h6 text-dark mb-0">{{ $certification->name ?? '' }}</h4>
-                <p class="small mb-0">
-                  &nbsp;
-                </p>
+                <p class="small mb-0">{{ $certification->description ?? '' }}</p>
               </div>
             </a>
           </div>

@@ -49,6 +49,9 @@ class LoginController extends Controller
           case 2:
               return route('home');
               break;
+          case 3:
+              return route('admin.home');
+              break;
           default:
               return route('login');
               break;
