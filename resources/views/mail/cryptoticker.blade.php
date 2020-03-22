@@ -8,7 +8,7 @@
     <table width="100%" cellpadding="0" cellspacing="0">
         <tr>
             <td width="100%" cellpadding="0" cellspacing="0">
-                <h1 style="font-size: 20px;">Coinmarketcap.com Ticker</h1>
+                <h1 style="font-size: 20px; @if ($type == 'Buy')color:#FF0000;@elseif ($type == 'Sell')color:#629632;@endif;">{{ $type }} @ {{ $currentUSDPrice }} vs. {{ $threshold }}</h1>
             </td>
         </tr>
         <tr>

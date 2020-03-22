@@ -38,8 +38,8 @@ class CryptoTicker extends Command
      */
     public function handle()
     {
-      $buy = "7000"; // 4800
-      $sell = "6000"; // 6600
+      $buy = "4800";
+      $sell = "6600";
 
       $url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest';
       $parameters = [
@@ -69,15 +69,15 @@ class CryptoTicker extends Command
 
       print_r($data); // print json decoded response
 
-      $email = env('COINMARKETCAP_NOTIFICATION', false);
-
       $currentUSDPrice = $data->data[0]->quote->USD->price;
       if($currentUSDPrice <= $buy){
         Mail::send(new \App\Mail\CryptoTicker('Buy', $currentUSDPrice, $buy));
+        echo "Buy !";
       }
 
       if($currentUSDPrice >= $sell){
         Mail::send(new \App\Mail\CryptoTicker('Sell', $currentUSDPrice, $sell));
+        echo "Sell!";
       }
 
       sleep(60);
