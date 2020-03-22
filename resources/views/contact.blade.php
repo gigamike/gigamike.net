@@ -123,7 +123,7 @@
                        data-msg="Please enter your name."
                        data-error-class="u-has-error"
                        data-success-class="u-has-success"
-                       value={{old('name')}}>
+                       value="{{old('name')}}">
               </div>
             </div>
             <!-- End Input -->
@@ -140,7 +140,7 @@
                        data-msg="Please enter a valid email address."
                        data-error-class="u-has-error"
                        data-success-class="u-has-success"
-                       value={{old('email')}}>
+                       value="{{old('email')}}">
               </div>
             </div>
             <!-- End Input -->
@@ -159,7 +159,7 @@
                        data-msg="Please enter a subject."
                        data-error-class="u-has-error"
                        data-success-class="u-has-success"
-                       value={{old('subject')}}>
+                       value="{{old('subject')}}">
               </div>
             </div>
             <!-- End Input -->
@@ -174,7 +174,7 @@
                 <input type="number" class="form-control" name="phone" placeholder="1-800-643-4500" aria-label="1-800-643-4500"
                        data-error-class="u-has-error"
                        data-success-class="u-has-success"
-                       value={{old('phone')}}>
+                       value="{{old('phone')}}">
               </div>
             </div>
             <!-- End Input -->

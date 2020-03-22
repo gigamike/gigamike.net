@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a347b27e46f35eeea4c91a689fc2bd85",
+    "content-hash": "2113e0f6e98af237a5188c4570b3f89b",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1467,6 +1467,38 @@
                 "processing"
             ],
             "time": "2019-04-03T23:46:42+00:00"
+        },
+        {
+            "name": "michaelgerardgalon/gigamike",
+            "version": "1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/gigamike/HelloWorld.git",
+                "reference": "3665f62f26985b1a51f948b8c1fe0897e5b7b765"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/gigamike/HelloWorld/zipball/3665f62f26985b1a51f948b8c1fe0897e5b7b765",
+                "reference": "3665f62f26985b1a51f948b8c1fe0897e5b7b765",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    ":Gigamike\\:HelloWorld\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Michael Gerard Galon",
+                    "email": "michael.gerard.galon@gmail.com"
+                }
+            ],
+            "time": "2020-03-02T02:20:55+00:00"
         },
         {
             "name": "monolog/monolog",
