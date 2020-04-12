@@ -39,7 +39,7 @@ class CryptoTicker extends Command
     public function handle()
     {
       $buy = "4800";
-      $sell = "6600";
+      $sell = "7000";
 
       $url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest';
       $parameters = [

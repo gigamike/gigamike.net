@@ -61,6 +61,30 @@
     </script>
 </head>
 <body>
+  <!-- Load Facebook SDK for JavaScript -->
+      <div id="fb-root"></div>
+      <script>
+        window.fbAsyncInit = function() {
+          FB.init({
+            xfbml            : true,
+            version          : 'v6.0'
+          });
+        };
+
+        (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
+
+      <!-- Your customer chat code -->
+      <div class="fb-customerchat"
+        attribution=setup_tool
+        page_id="187978131238278">
+      </div>
+
   <!-- ========== HEADER ========== -->
   <header id="header" class="u-header u-header--bg-transparent">
     <!-- Search -->
@@ -193,7 +217,7 @@
                 <img class="dropdown-item-icon" src="/assets/vendor/flag-icon-css/flags/4x3/us.svg" alt="SVG">
                 <span class="d-inline-block d-sm-none">US</span>
                 <span class="d-none d-sm-inline-block">United States</span>
-              @endswitch 
+              @endswitch
             </a>
 
             <div id="languageDropdown" class="dropdown-menu dropdown-unfold" aria-labelledby="languageDropdownInvoker">
@@ -789,7 +813,7 @@
 
   <!-- Go to Top -->
   <a class="js-go-to u-go-to" href="#"
-    data-position='{"bottom": 15, "right": 15 }'
+    data-position='{"bottom": 15, "left": 15 }'
     data-type="fixed"
     data-offset-top="400"
     data-compensation="#header"
